@@ -27,4 +27,4 @@ You can test the spectrum works with
 
 This should produce the default ZX Spectrum boot:
 
-!(https://github.com/EdNekebno/myrivescartridges/blob/main/images/default-boot.png)
+![Default Boot](https://github.com/EdNekebno/myrivescartridges/blob/main/images/default-boot.png)
