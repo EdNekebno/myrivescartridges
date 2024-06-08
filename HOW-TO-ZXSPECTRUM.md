@@ -98,7 +98,7 @@ Time to save the config file one more time. The emulator now knows how to tell r
 
 ###### Game Controller
 
-We've come along way since the decades old speccy key. We probably want to use a game controller (or at least map the keys RIVES uses for one to whatever weird speccy keys the game author choose). The Game Controller will also emulate a Kempston joystick, but we should do this anyway. Hit F2 and you get a different menu.
+We've come along way since the decades old speccy keyboard. We probably want to use a game controller (or at least map the keys RIVES uses for one to whatever weird speccy keys the game author choose). The Game Controller will also emulate a Kempston joystick, but we should do this anyway. Hit F2 and you get a different menu.
 
 ![Key Config](https://github.com/EdNekebno/myrivescartridges/blob/main/images/keyconfig.png)
 
