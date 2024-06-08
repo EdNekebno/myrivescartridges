@@ -1,4 +1,4 @@
-#ZX Spectrum Emulator for RIVES.io
+# ZX Spectrum Emulator for RIVES.io
 
 The file zxspectrum.sqfs contains a ZX Spectrum emulator in the sqfs cartridge format for rives. You can try it out by download zxspectrum.sqfs and going to [emulator.rives.io](https://emulator.rives.io) and dragging it to where it says "Drop Cartridge .sqfs file".
 
@@ -51,8 +51,49 @@ Hit ENTER and if everything is good, the game should load.
 
 It's so preferable to use .z80 snapshot files that the emulator has a little trick. Once your game is running, hit F3 and it will output a .z80 snapshot called dump-0.z80 (if that already exists then it chooses dump-1.z80, etc). You can check this file works, and delete the original .tap file, happy that you no longer need to type LOAD ""
 
+##### Making a RIVES cartridge
 
+Okay, so you can now play spectrum games. That's pretty cool. But we want to take advantage of rives features. In particular the ability to record the score. It would also be cool if we could use a game controller with the games. Got you covered!
 
+###### Scores and Game Over Screens
+
+Load up a game and hit F1. You'll see a menu pop up. There's quite a few options, so as you'll guess these instructions are going to be quite long :) 
+
+![Game Config for RIVES](https://github.com/EdNekebno/myrivescartridges/blob/main/images/gameconfigforrives.png)
+
+With the exception of turning sound on and off (useful for 128k mode), these relate to the score and the end game. For this example, I'll use the game 3D Death Chase. The first thing I'll do is set the score location. These are represented by zeros and then an X in the position we're looking for. So if I select 00000X then I'm looking for the last digit. Use the arrows keys to select that and hit enter and you get:
+
+![Location Selector](https://github.com/EdNekebno/myrivescartridges/blob/main/images/locationselector.png)
+
+This looks like just a 3D Death Chase screen, but if you look carefully at the top left there's a box outlined in magenta. We can use the arrow keys and enter to select the square on the screen where this number is. Most of the time the whole number fits in this square, but if it doesn't then select the square with the most of the number.
+
+![Select last digit in score](https://github.com/EdNekebno/myrivescartridges/blob/main/images/selectlastscore.png)
+
+Here we go, I've put the box over the last digit in the score and if I hit enter, it will go back to the main menu. This magenta box comes up a lot for items in this menu. Also for 0000x0 for the second to last digit, and so on.
+
+Once the score locations are saved, it's probably a good idea to use the arrow keys to select "Save Config File" and hit enter. It'll beep when it's saved it.
+
+Next notice that there are several menu items like "SET SC NUM x HASH". Now we've set where the score locations are, we need to tell the emulator how to recognise a each possible digit of the score. Basically, we're teaching it what a zero looks like, what a 1 looks like, and so on. Normally this involves going to the "back to the emulator" menu item and playing the game a bit until you have scores containing 0, 1, etc. So you go backwards and forwards a bit but it's not too tough. With 3D Death Chase the score is shown as zeros before you even start. So I can choose "SET SC NUM 0 HASH: 0" and hit enter, position the magenta square over any number 0 in the score and hit enter. 
+
+You'll see the number next to the menu item change.
+
+![SC 0 Hash](https://github.com/EdNekebno/myrivescartridges/blob/main/images/schash.png)
+
+This is a hash, it's a kind of magic number that allows the emulator to recognise the zero in the scores. When you've done all digits (0 to 9), the menu will look something like this (but probably with different hash numbers)
+
+![SC Hashes](https://github.com/EdNekebno/myrivescartridges/blob/main/images/schashes.png)
+
+A handy hit is all the numbers should be different. Now's probably a good time to save the config file again.
+
+Next it's time to do something I excel in in games - lose! Let the game play and deliberately die and hit F1 when the game shows a game over screen. There are four options at the top. SET ENDGAME MIN X, SET ENDGAME MIN Y, SET ENDGAME MAX X, SET ENDGAME MAX Y. We actually only need to use two of these as the min and max options set both the X and Y regardless of which you pick. For my example, I'm going to hit SET ENDGAME MIN X.
+
+![Game Over Min](https://github.com/EdNekebno/myrivescartridges/blob/main/images/gameovermin.png)
+
+We need to find something unique about this game over screen that will be the same every time. The min options let us set the top left of the bounding box. Here it's just the text "GAME OVER", that's all on the same line. So I put the box at the beginning and hit enter.
+
+Back in the main menu you'll see it's filled in the MIN X and the MIN Y values for you. Do the same with the SET ENGAME MAX X option. In my case I'd position the box over the "R" in over, but it may be that you should select a bigger area with different games.
+
+Time to save the config file one more time. The emulator now knows how to tell rives when the game is over and what the score was.
 
 
 THIS DOCUMENT IS A WORK IN PROGRESS. TO BE CONTINUED!
