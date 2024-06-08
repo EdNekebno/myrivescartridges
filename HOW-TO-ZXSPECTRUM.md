@@ -114,7 +114,7 @@ Time to hit "SAVE CONTROLLER CONFIG" and we're all done with configuration. The 
 
 If you've followed so far then for whatever game you're doing you'll have the <game>.z80 snapshot file, a <game>.z80.cfg file containing the scoring and game over detection information, and a <game>.z80.controller.cfg file. We want to put those and a few other files into a .sqfs file for RIVES. I put a handy script in the .zip file. First though, we need the rives sdk. Instructions to get that are here (just run the wget line)
 
-![Install RIV SDK](https://docs.rives.io/docs/riv/developing-cartridges#installing-the-riv-sdk)
+[Install RIV SDK](https://docs.rives.io/docs/riv/developing-cartridges#installing-the-riv-sdk)
 
 Now build a sqfs file using the script.
 
@@ -130,7 +130,7 @@ So in my example case, I have deathchase.z80 and I'd do.
 
 It'll open the game again. But you should also see a <game>.sqfs file - the RIVES cartridge! For example, I get deathchase.sqfs. Now it's time to test it until you die. I mean it! Head on over to the web version of the rives emulator:
 
-![RIVES Emulator](https://emulator.rives.io)
+[RIVES Emulator](https://emulator.rives.io)
 
 Drag your .sqfs file in. Play it, die and check it detects the game has ended and the outcard has the right score.
 
