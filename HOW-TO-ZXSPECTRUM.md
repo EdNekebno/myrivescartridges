@@ -50,7 +50,7 @@ You can navigate this with the arrow keys and use ENTER to select your game. Thi
 
 Hit ENTER and if everything is good, the game should load.
 
-It's so preferable to use .z80 snapshot files that the emulator has a little trick. Once your game is running, hit F3 and it will output a .z80 snapshot called dump-0.z80 (if that already exists then it chooses dump-1.z80, etc). You can check this file works, and delete the original .tap file, happy that you no longer need to type LOAD ""
+It's so preferable to use .z80 snapshot files that the emulator has a little trick. Once your game is running, hit F3 and it will output a .z80 snapshot called dump-0.z80 (if that already exists then it chooses dump-1.z80, etc). You can check this file works, and delete the original .tap file, happy that you no longer need to type LOAD "" . Oh, and rename the file to a more sensible name.
 
 ##### Making a RIVES cartridge
 
@@ -110,8 +110,29 @@ Here I have mapped the, I imagine logical to somebody, keys for 3D death chase t
 
 Time to hit "SAVE CONTROLLER CONFIG" and we're all done with configuration. The emulator can now tell rives the game is over, what the score was, and you can use the game controller.
 
+###### Build the .sqfs RIVES cartridge
 
+If you've followed so far then for whatever game you're doing you'll have the <game>.z80 snapshot file, a <game>.z80.cfg file containing the scoring and game over detection information, and a <game>.z80.controller.cfg file. We want to put those and a few other files into a .sqfs file for RIVES. I put a handy script in the .zip file. First though, we need the rives sdk. Instructions to get that are here (just run the wget line)
 
+![Install RIV SDK](https://docs.rives.io/docs/riv/developing-cartridges#installing-the-riv-sdk)
 
+Now build a sqfs file using the script.
 
-THIS DOCUMENT IS A WORK IN PROGRESS. TO BE CONTINUED!
+`./mksqfs.sh <game>`
+
+So in my example case, I have deathchase.z80 and I'd do.
+
+`./mksqfs.sh deathchase`
+
+(basically leave the .z80 off)
+
+###### Test it till you die
+
+It'll open the game again. But you should also see a <game>.sqfs file - the RIVES cartridge! For example, I get deathchase.sqfs. Now it's time to test it until you die. I mean it! Head on over to the web version of the rives emulator:
+
+![RIVES Emulator](https://emulator.rives.io)
+
+Drag your .sqfs file in. Play it, die and check it detects the game has ended and the outcard has the right score.
+
+That wasn't as difficult as these extensive instructions made it look! Through the magic of lots and lots of 1s and 0s, you've brought an old game kicking and screaming into the 21st century. The old meets the new. Now it's time to challenge your friends to beat your score :)
+
