@@ -10,6 +10,7 @@ Naturally if you do that you'll just get a ZX Spectrum emulator, and what we all
 * Should run in realtime, 50fps, on most systems
 * Emulates a 48k spectrum with sampled virtual speaker
 * Emulates a 128k spectrum (but struggles with AY chip emulation)
+* Game Controller acts as Kempson Joystick
 * Can load .z80 snapshot files
 * Basic .tap file support
 * Can read the score of the screen and detect end of game for rives.io functionality
@@ -77,7 +78,7 @@ Next notice that there are several menu items like "SET SC NUM x HASH". Now we'v
 
 You'll see the number next to the menu item change.
 
-![SC 0 Hash](https://github.com/EdNekebno/myrivescartridges/blob/main/images/schash.png)
+![SC 0 Hash](https://github.com/EdNekebno/myrivescartridges/blob/main/images/sc0hash.png)
 
 This is a hash, it's a kind of magic number that allows the emulator to recognise the zero in the scores. When you've done all digits (0 to 9), the menu will look something like this (but probably with different hash numbers)
 
@@ -94,6 +95,23 @@ We need to find something unique about this game over screen that will be the sa
 Back in the main menu you'll see it's filled in the MIN X and the MIN Y values for you. Do the same with the SET ENGAME MAX X option. In my case I'd position the box over the "R" in over, but it may be that you should select a bigger area with different games.
 
 Time to save the config file one more time. The emulator now knows how to tell rives when the game is over and what the score was.
+
+###### Game Controller
+
+We've come along way since the decades old speccy key. We probably want to use a game controller (or at least map the keys RIVES uses for one to whatever weird speccy keys the game author choose). The Game Controller will also emulate a Kempston joystick, but we should do this anyway. Hit F2 and you get a different menu.
+
+![Key Config](https://github.com/EdNekebno/myrivescartridges/blob/main/images/keyconfig.png)
+
+This is super easy. Find out what keys the game uses. I have two favourite methods I use for this. The first is just randomly pressing keys on the keyboard and seeing if they do anything, the second I call Google :) Select the game controller item on the menu with the up down arrows, hit enter, wait for the confirmation sound and then hit whatever key you want to map to the item on the controller.
+
+![Death Chase Keys](https://github.com/EdNekebno/myrivescartridges/blob/main/images/deathchasekeys.png)
+
+Here I have mapped the, I imagine logical to somebody, keys for 3D death chase to the appropriate controller buttons. Note: you can have multiple game controller buttons send the same key - hence I set a lot of them to be space for fire!
+
+Time to hit "SAVE CONTROLLER CONFIG" and we're all done with configuration. The emulator can now tell rives the game is over, what the score was, and you can use the game controller.
+
+
+
 
 
 THIS DOCUMENT IS A WORK IN PROGRESS. TO BE CONTINUED!
